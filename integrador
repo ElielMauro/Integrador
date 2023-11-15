@@ -1,3 +1,47 @@
-import java.util.Scanner;
+package bienestar360;
 
-public void main[]
+import java.util.Scanner;
+import javax.swing.*;
+
+public class Integrador 
+{
+    public static double calcularIMC (double peso, double altura){
+        double imc = peso / (altura * altura);
+        return imc;
+    }
+
+    public void presentarMenu ()
+    {
+        System.out.println("El Menu es el siguiente: ");
+        System.out.println("1 - Sobrecarga");
+        System.out.println("2 - Definición");
+        System.out.println("3 - Bajar de Peso");
+    }
+
+    public static void main(String[] args)
+    {
+        float edad, altura, peso;
+        edad = Float.parseFloat(JOptionPane.showInputDialog("Edad: "));
+        altura = Float.parseFloat(JOptionPane.showInputDialog("Altura: "));
+        peso = Float.parseFloat(JOptionPane.showInputDialog("Peso: "));
+
+        
+        Integrador integrador = new Integrador();
+        System.out.println("Tu IMC es de: " + calcularIMC(peso, altura));
+        
+        double imc = calcularIMC(peso, altura);
+
+		if(imc < 18.5)
+        {
+            System.out.println("Su Indice de Masa Corporal indica un bajo peso. Se recomienda una rutina para crear volumen."
+             + "No se recomienda una rutina para bajar de peso.");
+        }else if(imc >= 18.5 && imc <= 24.9){
+            System.out.println("Su Indice de Masa Corporal indica un peso normal.");
+        }else if(imc > 24.9 && imc <= 29.9){
+            System.out.println("Su Indice de Masa Corporal indica sobrepeso. Se recomienda una rutina para definicion");
+        }else{
+            System.out.println("Su Indice de Masa Corporal indica obesidad. Se recomienda una rutina para definicion");
+        }
+        integrador.presentarMenu();
+    }
+}
